@@ -43,8 +43,8 @@ module.exports = function() {
                         }
 
                         // time newlines, whitespaces, and parentheses
-                        var sassMapKey = sassMapRuleObj[0].replace(/[\(\n]/, '').trim(); 
-                        var sassMapVal = sassMapRuleObj[1].trim();
+                        var sassMapKey = sassMapRuleObj[0].replace(/[\(\n]/, '').trim();
+                        var sassMapVal = (sassMapRuleObj[1].indexOf('(') < 0 && sassMapRuleObj[1].indexOf(')') > -1) ? sassMapRuleObj[1].split(')')[0] : sassMapRuleObj[1].trim();
 
                         outputObj[sassMapKey] = sassMapVal;
                 }
